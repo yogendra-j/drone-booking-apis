@@ -1,0 +1,32 @@
+{
+  "name": "drone-booking-apis",
+  "version": "1.0.0",
+  "description": "dorone booking apis",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "dev-start": "nodemon server.js"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "express",
+    "js",
+    "prisma",
+    "sql",
+    "mysql",
+    "controllers"
+  ],
+  "author": "yogendra jaiswal",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.0",
+    "prisma": "^4.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22"
+  }
+}
