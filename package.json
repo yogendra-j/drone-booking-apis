@@ -2,10 +2,12 @@
   "name": "drone-booking-apis",
   "version": "1.0.0",
   "description": "dorone booking apis",
-  "main": "server.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
-    "dev-start": "nodemon src/server.js"
+    "test": "jest --watch",
+    "dev-start": "nodemon src/index.js",
+    "start": "node ./src/index.js"
   },
   "keywords": [
     "rest",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.22"
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
   }
 }
