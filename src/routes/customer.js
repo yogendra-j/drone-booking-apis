@@ -47,7 +47,7 @@ router.put("/:id", async (req, res, next) => {
     const customerId = parseInt(req.params.id);
     const updatedCustomer = req.body;
     const result = await updateCustomer(customerId, updatedCustomer);
-    if (result === 1) {
+    if (result) {
       res.json(updatedCustomer);
     } else {
       res.status(404).send("Customer not found");
@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const customerId = parseInt(req.params.id);
     const result = await deleteCustomer(customerId);
-    if (result === 1) {
+    if (result) {
       res.sendStatus(200);
     } else {
       res.status(404).send("Customer not found");

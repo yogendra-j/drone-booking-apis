@@ -41,6 +41,7 @@ router.put("/:id", async (req, res, next) => {
     const updatedDroneSite = await updateDroneSiteById(req.params.id, req.body);
     res.status(200).json(updatedDroneSite);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });

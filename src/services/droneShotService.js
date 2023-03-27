@@ -1,11 +1,11 @@
 import prisma from '../db/prisma.js';
 
-const createDroneShot = async (name, duration, price) => {
+const createDroneShot = async ({name, duration, price}) => {
   const droneShot = await prisma.droneShotType.create({
     data: {
       name,
-      duration,
-      price,
+      duration: parseInt(duration),
+      price: parseFloat(price),
     },
   });
   return droneShot;
@@ -25,12 +25,16 @@ const getDroneShotById = async (id) => {
   return droneShot;
 };
 
-const updateDroneShotById = async (id, data) => {
+const updateDroneShotById = async (id, {name, duration, price}) => {
   const droneShot = await prisma.droneShotType.update({
     where: {
       id: parseInt(id),
     },
-    data,
+    data: {
+      name,
+      duration: parseInt(duration),
+      price: parseFloat(price),
+    },
   });
   return droneShot;
 };

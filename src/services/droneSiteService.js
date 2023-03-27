@@ -10,7 +10,7 @@ const createDroneSite = async (droneSite) => {
 const getAllDroneSites = async () => {
   const allDroneSites = await prisma.droneSite.findMany({
     include: {
-      bookings: true,
+      bookings: false,
     },
   });
   return allDroneSites;
@@ -18,17 +18,17 @@ const getAllDroneSites = async () => {
 
 const getDroneSiteById = async (id) => {
   const droneSite = await prisma.droneSite.findUnique({
-    where: { id },
+    where: { id: parseInt(id) },
     include: {
-      bookings: true,
+      bookings: false,
     },
   });
   return droneSite;
 };
 
-const updateDroneSiteById = async (id, droneSite) => {
+const updateDroneSiteById = async (id, {discardId, ...droneSite}) => {
   const updatedDroneSite = await prisma.droneSite.update({
-    where: { id },
+    where: { id: parseInt(id) },
     data: droneSite,
   });
   return updatedDroneSite;
@@ -36,7 +36,7 @@ const updateDroneSiteById = async (id, droneSite) => {
 
 const deleteDroneSiteById = async (id) => {
   const deletedDroneSite = await prisma.droneSite.delete({
-    where: { id },
+    where: { id: parseInt(id) },
   });
   return deletedDroneSite;
 };

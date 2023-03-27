@@ -14,6 +14,7 @@ router.post("/", async (req, res, next) => {
     const newDroneShot = await createDroneShot(req.body);
     res.status(201).json(newDroneShot);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });
