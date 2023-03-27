@@ -12,10 +12,10 @@ dotenv.config();
 app.use(cors());
 app.use(json());
 
-app.use('/customers', customerRoutes);
-app.use('/bookings', bookingRoutes);
-app.use('/drone-shots', droneShotRoutes);
-app.use('/drone-sites', droneSiteRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/drone-shots', droneShotRoutes);
+app.use('/api/drone-sites', droneSiteRoutes);
 
 app.use(errorMiddleware);
 
