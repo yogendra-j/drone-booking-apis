@@ -18,9 +18,9 @@ model Customer {
 model Booking {
   id           Int      @id @default(autoincrement())
   createdTime  DateTime @default(now())
-  droneSite    DroneSite @relation(fields: [droneSiteId], references: [id], map: "droneSiteId_fkey")
-  droneShot    DroneShotType @relation(fields: [droneShotId], references: [id], map: "droneShotId_fkey")
-  customer     Customer @relation(fields: [customerId], references: [id], map: "customerId_fkey")
+  droneSite    DroneSite @relation(fields: [droneSiteId], references: [id], map: "droneSiteId_fkey", onDelete: Cascade)
+  droneShot    DroneShotType @relation(fields: [droneShotId], references: [id], map: "droneShotId_fkey", onDelete: Cascade)
+  customer     Customer @relation(fields: [customerId], references: [id], map: "customerId_fkey", onDelete: Cascade)
   customerId   Int
   droneSiteId  Int
   droneShotId  Int
